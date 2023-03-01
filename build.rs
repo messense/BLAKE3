@@ -221,6 +221,8 @@ fn build_neon_c_intrinsics() {
     if is_armv7() {
         build.flag("-mfpu=neon-vfpv4");
         build.flag("-mfloat-abi=hard");
+    } else if is_aarch64() {
+        build.flag("-mfloat-abi=hard");
     }
     build.compile("blake3_neon");
 }
